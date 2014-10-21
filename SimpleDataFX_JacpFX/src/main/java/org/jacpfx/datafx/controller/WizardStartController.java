@@ -3,7 +3,7 @@
  *
  *  Copyright (C) 2010 - 2014
  *
- *  [JacpFXContextInjection.java]
+ *  [Component.java]
  *  JACPFX Project (https://github.com/JacpFX/JacpFX/)
  *  All rights reserved.
  *
@@ -23,26 +23,40 @@
  * *********************************************************************
  */
 
-package org.jacpfx.datafx.plugin;
+package org.jacpfx.datafx.controller;
 
+import io.datafx.controller.FXMLController;
+import io.datafx.controller.flow.action.ActionTrigger;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 
-import io.datafx.controller.context.ViewContext;
-import io.datafx.controller.context.resource.AnnotatedControllerResourceType;
-import io.datafx.controller.flow.context.ViewFlowContext;
-import org.jacpfx.api.annotations.Resource;
-import org.jacpfx.rcp.context.Context;
+import javax.annotation.PostConstruct;
 
 /**
- * Created by amo on 29.09.14.
+ * Created by amo on 20.10.14.
  */
-public class JacpFXContextInjection implements AnnotatedControllerResourceType<Resource,Context> {
-    @Override
-    public Context getResource(Resource jacpFXContext, Class<Context> contextClass, ViewContext<?> viewContext) {
-        return (Context) viewContext.getRegisteredObject(ViewFlowContext.class).getRegisteredObject("jacpfxContext");
+@FXMLController(value="/fxml/wizardStart.fxml", title = "Wizard: Start")
+public class WizardStartController {
+    @FXML
+    @ActionTrigger("back")
+    private Button backButton;
+
+
+
+    @FXML
+    @ActionTrigger("next")
+    private Button nextButton;
+
+    public Button getBackButton() {
+        return backButton;
     }
 
-    @Override
-    public Class<Resource> getSupportedAnnotation() {
-        return Resource.class;
+    public Button getNextButton() {
+        return nextButton;
+    }
+
+    @PostConstruct
+    public void init() {
+        getBackButton().setDisable(true);
     }
 }

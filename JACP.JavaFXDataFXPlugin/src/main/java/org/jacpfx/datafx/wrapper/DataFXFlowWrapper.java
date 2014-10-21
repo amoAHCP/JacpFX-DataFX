@@ -25,13 +25,12 @@
 
 package org.jacpfx.datafx.wrapper;
 
+import io.datafx.controller.ViewConfiguration;
+import io.datafx.controller.flow.Flow;
+import io.datafx.controller.flow.FlowHandler;
+import io.datafx.controller.flow.context.ViewFlowContext;
 import javafx.event.Event;
 import javafx.event.EventHandler;
-import org.datafx.controller.ViewConfiguration;
-import org.datafx.controller.flow.Flow;
-import org.datafx.controller.flow.FlowException;
-import org.datafx.controller.flow.FlowHandler;
-import org.datafx.controller.flow.context.ViewFlowContext;
 import org.jacpfx.api.component.SubComponent;
 import org.jacpfx.api.util.CustomSecurityManager;
 import org.jacpfx.rcp.registry.ComponentRegistry;
@@ -72,7 +71,7 @@ public class DataFXFlowWrapper extends Flow {
      * {@inheritDoc}
      */
     @Override
-    public FlowHandler createHandler() throws FlowException {
+    public FlowHandler createHandler() {
         return createHandler(new ViewFlowContext());
     }
 }

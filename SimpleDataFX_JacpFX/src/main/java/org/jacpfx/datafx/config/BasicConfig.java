@@ -3,7 +3,7 @@
  *
  *  Copyright (C) 2010 - 2014
  *
- *  [JacpFXContextInjection.java]
+ *  [Component.java]
  *  JACPFX Project (https://github.com/JacpFX/JacpFX/)
  *  All rights reserved.
  *
@@ -23,26 +23,26 @@
  * *********************************************************************
  */
 
-package org.jacpfx.datafx.plugin;
+package org.jacpfx.datafx.config;
 
-
-import io.datafx.controller.context.ViewContext;
-import io.datafx.controller.context.resource.AnnotatedControllerResourceType;
-import io.datafx.controller.flow.context.ViewFlowContext;
-import org.jacpfx.api.annotations.Resource;
-import org.jacpfx.rcp.context.Context;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
 /**
- * Created by amo on 29.09.14.
+ * Created by Amdy Moncsek on 28.01.14.
  */
-public class JacpFXContextInjection implements AnnotatedControllerResourceType<Resource,Context> {
-    @Override
-    public Context getResource(Resource jacpFXContext, Class<Context> contextClass, ViewContext<?> viewContext) {
-        return (Context) viewContext.getRegisteredObject(ViewFlowContext.class).getRegisteredObject("jacpfxContext");
-    }
+@Configuration
+@ComponentScan
+public class BasicConfig {
 
-    @Override
-    public Class<Resource> getSupportedAnnotation() {
-        return Resource.class;
-    }
+    public static final String PERSPECTIVE_ONE = "idPone";
+    public static final String PERSPECTIVE_TWO = "idPtwo";
+
+    public static final String COMPONENT_LEFT = "id002";
+    public static final String COMPONENT_RIGHT = "id003";
+
+
+
+    public static final String TARGET_CONTAINER_LEFT = "PLeft";
+    public static final String TARGET_CONTAINER_MAIN = "PMain";
 }
