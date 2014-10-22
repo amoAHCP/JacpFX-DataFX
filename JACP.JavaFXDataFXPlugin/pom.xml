@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.jacpfx</groupId>
-    <version>2.0.2</version>
+    <version>1.0</version>
     <artifactId>jacpfx.JavaFXDataFXPlugin</artifactId>
     <packaging>jar</packaging>
 
@@ -118,13 +118,13 @@
         <dependency>
             <groupId>org.jacpfx</groupId>
             <artifactId>jacpfx.API</artifactId>
-            <version>${project.version}</version>
+            <version>${jacp.version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.jacpfx</groupId>
             <artifactId>jacpfx.JavaFX</artifactId>
-            <version>${project.version}</version>
+            <version>${jacp.version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
