@@ -131,12 +131,13 @@
             <groupId>io.datafx</groupId>
             <artifactId>core</artifactId>
             <version>8.0</version>
-            <type>jar</type>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>io.datafx</groupId>
             <artifactId>flow</artifactId>
             <version>8.0</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

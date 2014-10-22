@@ -36,51 +36,40 @@
                 </configuration>
             </plugin>
             <plugin>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.6</version>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.3</version>
                 <executions>
                     <execution>
-                        <id>unpack-dependencies</id>
                         <phase>package</phase>
                         <goals>
-                            <goal>unpack-dependencies</goal>
+                            <goal>shade</goal>
                         </goals>
                         <configuration>
-                            <excludeScope>system</excludeScope>
-                            <excludeGroupIds>
-                                junit,org.mockito,org.hamcrest,org.springframework.jmx,org.springframework.ejb
-                            </excludeGroupIds>
-                            <outputDirectory>${project.build.directory}/classes</outputDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.2.1</version>
-                <executions>
-                    <execution>
-                        <id>package-jar</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                        <configuration>
-                            <executable>${env.JAVA_HOME}/bin/javapackager</executable>
-                            <arguments>
-                                <argument>-createjar</argument>
-                                <argument>-nocss2bin</argument>
-                                <argument>-appclass</argument>
-                                <argument>org.jacpfx.datafx.main.ApplicationLauncher</argument>
-                                <argument>-srcdir</argument>
-                                <argument>${project.build.directory}/classes</argument>
-                                <argument>-outdir</argument>
-                                <argument>./target</argument>
-                                <argument>-outfile</argument>
-                                <argument>${project.artifactId}-app</argument>
-                                <argument>-v</argument>
-                            </arguments>
+                            <artifactSet>
+                                <excludes>
+                                    <exclude>classworlds:classworlds</exclude>
+                                    <exclude>junit:junit</exclude>
+                                    <exclude>jmock:*</exclude>
+                                    <exclude>*:xml-apis</exclude>
+                                    <exclude>org.apache.maven:lib:tests</exclude>
+                                    <exclude>log4j:log4j:jar:</exclude>
+                                </excludes>
+
+                            </artifactSet>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                                    <resource>META-INF/services/io.datafx.controller.context.resource.AnnotatedControllerResourceType</resource>
+                                </transformer>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <manifestEntries>
+                                        <Main-Class>org.jacpfx.datafx.main.ApplicationLauncher</Main-Class>
+                                        <X-Compile-Source-JDK>1.8</X-Compile-Source-JDK>
+                                        <X-Compile-Target-JDK>1.8</X-Compile-Target-JDK>
+                                    </manifestEntries>
+                                </transformer>
+                            </transformers>
                         </configuration>
                     </execution>
                 </executions>
@@ -102,9 +91,8 @@
         </dependency>
         <dependency>
             <groupId>org.jacpfx</groupId>
-            <artifactId>jacpfx.JavaFXSpring</artifactId>
+            <artifactId>jacpfx.JavaFXLauncher</artifactId>
             <version>${jacp.version}</version>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.jacpfx</groupId>
