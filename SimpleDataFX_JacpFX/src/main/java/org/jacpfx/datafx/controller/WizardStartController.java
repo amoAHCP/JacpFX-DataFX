@@ -35,12 +35,11 @@ import javax.annotation.PostConstruct;
 /**
  * Created by amo on 20.10.14.
  */
-@FXMLController(value="/fxml/wizardStart.fxml", title = "Wizard: Start")
+@FXMLController(value = "/fxml/wizardStart.fxml", title = "Wizard: Start")
 public class WizardStartController {
     @FXML
     @ActionTrigger("back")
     private Button backButton;
-
 
 
     @FXML

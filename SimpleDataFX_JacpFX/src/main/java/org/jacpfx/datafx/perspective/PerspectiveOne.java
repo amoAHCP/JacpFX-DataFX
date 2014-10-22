@@ -29,23 +29,21 @@ import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 import javafx.scene.layout.GridPane;
 import org.jacpfx.api.annotations.Resource;
-import org.jacpfx.api.annotations.lifecycle.OnHide;
-import org.jacpfx.api.annotations.lifecycle.OnShow;
 import org.jacpfx.api.annotations.lifecycle.PostConstruct;
-import org.jacpfx.api.annotations.lifecycle.PreDestroy;
 import org.jacpfx.api.annotations.perspective.Perspective;
 import org.jacpfx.api.message.Message;
 import org.jacpfx.api.util.ToolbarPosition;
+import org.jacpfx.datafx.config.BasicConfig;
 import org.jacpfx.rcp.componentLayout.FXComponentLayout;
 import org.jacpfx.rcp.componentLayout.PerspectiveLayout;
 import org.jacpfx.rcp.components.toolBar.JACPToolBar;
 import org.jacpfx.rcp.context.Context;
 import org.jacpfx.rcp.perspective.FXPerspective;
 import org.jacpfx.rcp.util.LayoutUtil;
-import org.jacpfx.datafx.config.BasicConfig;
 
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
+
 import static javafx.scene.layout.Priority.ALWAYS;
 
 /**
@@ -73,24 +71,6 @@ public class PerspectiveOne implements FXPerspective {
 
     }
 
-
-    @OnShow
-    /**
-     * This method will be executed when the perspective gets the focus and switches to foreground
-     * @param layout, the component layout contains references to the toolbar and the menu
-     */
-    public void onShow(final FXComponentLayout layout) {
-        log.info("on show of PerspectiveOne");
-    }
-
-    @OnHide
-    /**
-     * will be executed when an active perspective looses the focus and moved to the background.
-     * @param layout, the component layout contains references to the toolbar and the menu
-     */
-    public void onHide(final FXComponentLayout layout) {
-        log.info("on hide of PerspectiveOne");
-    }
 
     @PostConstruct
     /**
@@ -128,15 +108,5 @@ public class PerspectiveOne implements FXPerspective {
         log.info("on PostConstruct of PerspectiveOne");
     }
 
-
-    @PreDestroy
-    /**
-     * @PreDestroy annotated method will be executed when component is deactivated.
-     * @param layout, the component layout contains references to the toolbar and the menu
-     */
-    public void onTearDownPerspective(final FXComponentLayout layout) {
-        log.info("on PreDestroy of PerspectiveOne");
-
-    }
 
 }

@@ -42,13 +42,12 @@ import javax.annotation.PostConstruct;
 /**
  * Created by amo on 20.10.14.
  */
-@FXMLController(value="/fxml/wizard1.fxml", title = "Wizard: Step 1")
+@FXMLController(value = "/fxml/wizard1.fxml", title = "Wizard: Step 1")
 public class Wizard1Controller {
 
     @FXML
     @ActionTrigger("back")
     private Button backButton;
-
 
 
     @FXML
@@ -72,9 +71,9 @@ public class Wizard1Controller {
     @PostConstruct
     public void init() {
         getNextButton().setDisable(true);
-        name.setOnKeyReleased(event->{
+        name.setOnKeyReleased(event -> {
             final String nameValue = name.getText();
-            if(context.getParentId().equals(BasicConfig.PERSPECTIVE_ONE)) {
+            if (context.getParentId().equals(BasicConfig.PERSPECTIVE_ONE)) {
                 context.send(BasicConfig.PERSPECTIVE_ONE.concat(".").concat(BasicConfig.COMPONENT_RIGHT), nameValue);
             } else {
                 context.send(BasicConfig.PERSPECTIVE_TWO.concat(".").concat(BasicConfig.COMPONENT_RIGHT), nameValue);

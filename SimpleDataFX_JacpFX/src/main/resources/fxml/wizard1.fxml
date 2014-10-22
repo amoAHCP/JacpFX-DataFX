@@ -32,14 +32,15 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<BorderPane  xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
     <bottom>
-        <fx:include source="actionBar.fxml" />
+        <fx:include source="actionBar.fxml"/>
     </bottom>
     <center>
         <GridPane hgap="14.0" minHeight="-Infinity" minWidth="-Infinity" vgap="20.0" BorderPane.alignment="CENTER">
             <children>
-                <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0"
+                <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true"
+                           GridPane.columnIndex="0"
                            GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="TOP">
                     <image>
                         <Image url="@../images/Monitor-icon.png"/>

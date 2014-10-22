@@ -25,10 +25,10 @@ package org.jacpfx.datafx.main;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.jacpfx.rcp.workbench.FXWorkbench;
-import org.jacpfx.spring.launcher.AFXSpringJavaConfigLauncher;
 import org.jacpfx.datafx.config.BasicConfig;
 import org.jacpfx.datafx.workbench.JacpFXWorkbench;
+import org.jacpfx.rcp.workbench.FXWorkbench;
+import org.jacpfx.spring.launcher.AFXSpringJavaConfigLauncher;
 
 /**
  * The application launcher containing the main method, the workbench definition, the configuration class and the packages to scan

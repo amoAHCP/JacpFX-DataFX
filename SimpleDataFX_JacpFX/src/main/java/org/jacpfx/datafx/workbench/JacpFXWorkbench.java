@@ -37,11 +37,11 @@ import org.jacpfx.api.util.ToolbarPosition;
 import org.jacpfx.controls.optionPane.JACPDialogButton;
 import org.jacpfx.controls.optionPane.JACPDialogUtil;
 import org.jacpfx.controls.optionPane.JACPOptionPane;
+import org.jacpfx.datafx.config.BasicConfig;
 import org.jacpfx.rcp.componentLayout.FXComponentLayout;
 import org.jacpfx.rcp.components.menuBar.JACPMenuBar;
 import org.jacpfx.rcp.context.Context;
 import org.jacpfx.rcp.workbench.FXWorkbench;
-import org.jacpfx.datafx.config.BasicConfig;
 
 /**
  * A simple JacpFX workbench

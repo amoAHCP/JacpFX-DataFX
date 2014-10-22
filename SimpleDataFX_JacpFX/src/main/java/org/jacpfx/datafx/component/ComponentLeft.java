@@ -37,7 +37,6 @@ import javafx.util.Duration;
 import org.jacpfx.api.annotations.Resource;
 import org.jacpfx.api.annotations.component.View;
 import org.jacpfx.api.annotations.lifecycle.PostConstruct;
-import org.jacpfx.api.annotations.lifecycle.PreDestroy;
 import org.jacpfx.api.message.Message;
 import org.jacpfx.datafx.config.BasicConfig;
 import org.jacpfx.datafx.controller.Wizard1Controller;
@@ -103,15 +102,6 @@ public class ComponentLeft implements FXComponent {
         this.log.info("run on start of ComponentLeft ");
     }
 
-    @PreDestroy
-    /**
-     * The @PreDestroy annotations labels methods executed when the component is set to inactive
-     * @param arg0
-     */
-    public void onPreDestroyComponent(final FXComponentLayout arg0) {
-        this.log.info("run on tear down of ComponentLeft ");
-
-    }
 
     /**
      * create the UI on first call
@@ -128,7 +118,6 @@ public class ComponentLeft implements FXComponent {
                 withGlobalBackAction("back").
                 withGlobalTaskAction("help", () -> System.out.println("There is no help for the application :("));
         FlowHandler flowHandler = flow.createHandler();
-        // flowHandler.getFlowContext().register("jacpfxContext",context);
         StackPane pane = null;
         try {
             pane = flowHandler.start(new AnimatedFlowContainer(Duration.millis(320), ContainerAnimations.ZOOM_IN));
@@ -137,7 +126,7 @@ public class ComponentLeft implements FXComponent {
         }
         LayoutUtil.VBoxUtil.setVGrow(Priority.ALWAYS, pane);
         main.getChildren().addAll(pane);
-        LayoutUtil.GridPaneUtil.setFullGrow(Priority.ALWAYS,main);
+        LayoutUtil.GridPaneUtil.setFullGrow(Priority.ALWAYS, main);
         return main;
     }
 

@@ -28,16 +28,12 @@ import javafx.scene.Node;
 import javafx.scene.control.TextArea;
 import org.jacpfx.api.annotations.Resource;
 import org.jacpfx.api.annotations.component.DeclarativeView;
-import org.jacpfx.api.annotations.lifecycle.PostConstruct;
-import org.jacpfx.api.annotations.lifecycle.PreDestroy;
 import org.jacpfx.api.message.Message;
+import org.jacpfx.datafx.config.BasicConfig;
 import org.jacpfx.rcp.component.FXComponent;
-import org.jacpfx.rcp.componentLayout.FXComponentLayout;
 import org.jacpfx.rcp.context.Context;
 import org.jacpfx.rcp.util.FXUtil;
-import org.jacpfx.datafx.config.BasicConfig;
 
-import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
 /**
@@ -79,29 +75,6 @@ public class ComponentRight implements FXComponent {
             name.setText(message.getTypedMessageBody(String.class));
         }
         return null;
-    }
-
-
-    @PostConstruct
-    /**
-     * The @PostConstruct annotation labels methods executed when the component switch from inactive to active state
-     * @param arg0
-     * @param resourceBundle
-     */
-    public void onPostConstructComponent(final FXComponentLayout arg0,
-                                         final ResourceBundle resourceBundle) {
-        this.log.info("run on start of ComponentRight ");
-
-    }
-
-    @PreDestroy
-    /**
-     * The @PreDestroy annotations labels methods executed when the component is set to inactive
-     * @param arg0
-     */
-    public void onPreDestroyComponent(final FXComponentLayout arg0) {
-        this.log.info("run on tear down of ComponentRight ");
-
     }
 
 

@@ -1,4 +1,4 @@
-JacpFX Quickstart-Archetype template
+JacpFX Quickstart-Archetype 
 ======
 
-This is a template for maven archetypes
+A demo for DataFX-flow usage in JacpFX via JacpFX/DataFX plugin.
