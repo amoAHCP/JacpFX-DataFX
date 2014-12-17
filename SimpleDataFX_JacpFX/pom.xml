@@ -23,6 +23,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jacp.version>2.0.2</jacp.version>
+        <jacpfx-datafx.version>1.0</jacpfx-datafx.version>
     </properties>
     <build>
         <plugins>
@@ -103,7 +104,7 @@
         <dependency>
             <groupId>org.jacpfx</groupId>
             <artifactId>jacpfx.JavaFXDataFXPlugin</artifactId>
-            <version>${jacp.version}</version>
+            <version>${jacpfx-datafx.version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>

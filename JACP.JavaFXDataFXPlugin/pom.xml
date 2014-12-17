@@ -8,7 +8,7 @@
     <packaging>jar</packaging>
 
     <name>jacpfx.JavaFXDataFXPlugin</name>
-    <url>https://github.com/JacpFX/JacpFX</url>
+    <url>https://github.com/amoAHCP/JacpFX-DataFX</url>
     <licenses>
         <license>
             <name>The Apache Software License, Version 2.0</name>
@@ -22,12 +22,10 @@
             <name>Andy Moncsek</name>
             <email>amo.ahcp@gmail.com</email>
         </developer>
-        <developer>
-            <id>pete</id>
-            <name>Patrick Symmangk</name>
-            <email>pete.ahcp@gmail.com</email>
-        </developer>
     </developers>
+    <description>
+        The JacpFX/DataFX-flow plugin allows to inject JacpFX context to DataFX-flow controllers.
+    </description>
     <scm>
         <connection>scm:git:git@github.com:JacpFX/JacpFX-DataFX.git</connection>
         <developerConnection>scm:git:git@github.com:JacpFX/JacpFX-DataFX.git</developerConnection>
@@ -106,7 +104,7 @@
                     <artifactId>maven-gpg-plugin</artifactId>
                     <version>1.4</version>
                     <configuration>
-                        <skip>true</skip>
+                        <skip>false</skip>
                     </configuration>
                 </plugin>
             </plugins>
