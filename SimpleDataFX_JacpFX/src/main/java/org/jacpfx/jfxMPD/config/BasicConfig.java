@@ -23,7 +23,7 @@
  * *********************************************************************
  */
 
-package org.jacpfx.datafx.config;
+package org.jacpfx.jfxMPD.config;
 
 /**
  * Created by Amdy Moncsek on 28.01.14.

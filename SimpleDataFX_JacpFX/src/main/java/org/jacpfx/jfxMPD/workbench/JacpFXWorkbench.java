@@ -20,7 +20,7 @@
  *
  *
  ************************************************************************/
-package org.jacpfx.datafx.workbench;
+package org.jacpfx.jfxMPD.workbench;
 
 import javafx.event.Event;
 import javafx.geometry.Pos;
@@ -37,7 +37,7 @@ import org.jacpfx.api.util.ToolbarPosition;
 import org.jacpfx.controls.optionPane.JACPDialogButton;
 import org.jacpfx.controls.optionPane.JACPDialogUtil;
 import org.jacpfx.controls.optionPane.JACPOptionPane;
-import org.jacpfx.datafx.config.BasicConfig;
+import org.jacpfx.jfxMPD.config.BasicConfig;
 import org.jacpfx.rcp.componentLayout.FXComponentLayout;
 import org.jacpfx.rcp.components.menuBar.JACPMenuBar;
 import org.jacpfx.rcp.context.Context;

@@ -23,20 +23,28 @@
  * *********************************************************************
  */
 
-package org.jacpfx.datafx.controller;
+package org.jacpfx.jfxMPD.controller;
 
 import io.datafx.controller.FXMLController;
 import io.datafx.controller.flow.action.ActionTrigger;
+import io.datafx.controller.flow.context.FXMLViewFlowContext;
+import io.datafx.controller.flow.context.ViewFlowContext;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
+import javafx.scene.control.TextField;
+import org.jacpfx.api.annotations.Resource;
+import org.jacpfx.jfxMPD.config.BasicConfig;
+import org.jacpfx.rcp.context.Context;
 
 import javax.annotation.PostConstruct;
 
 /**
  * Created by amo on 20.10.14.
  */
-@FXMLController(value = "/fxml/wizardStart.fxml", title = "Wizard: Start")
-public class WizardStartController {
+@FXMLController(value = "/fxml/wizard1.fxml", title = "Wizard: Step 1")
+public class Wizard1Controller {
+
     @FXML
     @ActionTrigger("back")
     private Button backButton;
@@ -46,16 +54,38 @@ public class WizardStartController {
     @ActionTrigger("next")
     private Button nextButton;
 
+    @Resource
+    private Context context;
+
+    @FXMLViewFlowContext
+    private ViewFlowContext vContext;
+
+    @FXML
+    private TextField name;
+
+    @FXML
+    @ActionTrigger("help")
+    private Hyperlink helpLink;
+
+
+    @PostConstruct
+    public void init() {
+        getNextButton().setDisable(true);
+        name.setOnKeyReleased(event -> {
+            final String nameValue = name.getText();
+            if (context.getParentId().equals(BasicConfig.PERSPECTIVE_ONE)) {
+                context.send(BasicConfig.PERSPECTIVE_ONE.concat(".").concat(BasicConfig.COMPONENT_RIGHT), nameValue);
+            } else {
+                context.send(BasicConfig.PERSPECTIVE_TWO.concat(".").concat(BasicConfig.COMPONENT_RIGHT), nameValue);
+            }
+        });
+    }
+
     public Button getBackButton() {
         return backButton;
     }
 
     public Button getNextButton() {
         return nextButton;
-    }
-
-    @PostConstruct
-    public void init() {
-        getBackButton().setDisable(true);
     }
 }

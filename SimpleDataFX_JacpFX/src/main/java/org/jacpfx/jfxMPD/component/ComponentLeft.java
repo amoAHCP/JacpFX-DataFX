@@ -20,7 +20,7 @@
  *
  *
  ************************************************************************/
-package org.jacpfx.datafx.component;
+package org.jacpfx.jfxMPD.component;
 
 import io.datafx.controller.flow.Flow;
 import io.datafx.controller.flow.FlowException;
@@ -38,10 +38,10 @@ import org.jacpfx.api.annotations.Resource;
 import org.jacpfx.api.annotations.component.View;
 import org.jacpfx.api.annotations.lifecycle.PostConstruct;
 import org.jacpfx.api.message.Message;
-import org.jacpfx.datafx.config.BasicConfig;
-import org.jacpfx.datafx.controller.Wizard1Controller;
-import org.jacpfx.datafx.controller.WizardStartController;
-import org.jacpfx.datafx.wrapper.DataFXFlowWrapper;
+import org.jacpfx.jfxMPD.config.BasicConfig;
+import org.jacpfx.jfxMPD.controller.Wizard1Controller;
+import org.jacpfx.jfxMPD.controller.WizardStartController;
+import org.jacpfx.jfxMPD.wrapper.DataFXFlowWrapper;
 import org.jacpfx.rcp.component.FXComponent;
 import org.jacpfx.rcp.componentLayout.FXComponentLayout;
 import org.jacpfx.rcp.context.Context;
